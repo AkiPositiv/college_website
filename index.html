@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колледж Информационных Технологий - Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Шапка сайта -->
+        <header class="header">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <!-- Замените на логотип колледжа -->
+                    <img src="https://placehold.co/50x50/007bff/ffffff?text=КИТ" alt="Логотип КИТ" class="logo-img">
+                    Колледж ИТ
+                </a>
+                <nav class="nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li><a href="about.html">О колледже</a></li>
+                        <li><a href="applicants.html">Абитуриентам</a></li>
+                        <li><a href="education.html">Образование</a></li>
+                        <li><a href="student-life.html">Студенческая жизнь</a></li>
+                        <li><a href="research.html">Наука</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                    </ul>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="uz">UZ</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <button class="menu-toggle" aria-label="Открыть меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Главный баннер/Слайдер -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Будущее начинается здесь: Обучайся IT, строй карьеру</h1>
+                    <p>Колледж Информационных Технологий — это ваш путь к успешной карьере в мире высоких технологий. Мы предлагаем передовые образовательные программы и практический опыт.</p>
+                    <div class="hero-buttons">
+                        <a href="applicants.html" class="btn btn-primary">Поступить сейчас</a>
+                        <a href="education.html" class="btn btn-secondary">Наши специальности</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "О нас" -->
+        <section class="about-us-section content-section">
+            <div class="container">
+                <h2>О Колледже Информационных Технологий</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Колледж Информационных Технологий (КИТ) — ведущее учебное заведение, специализирующееся на подготовке высококвалифицированных специалистов в сфере IT. Наша миссия — обеспечить молодежь Узбекистана и мира передовыми знаниями и практическими навыками, необходимыми для успешной карьеры в динамично развивающейся цифровой экономике.</p>
+                        <p>Мы гордимся нашим современным оборудованием, инновационными методиками обучения и опытным преподавательским составом, который постоянно совершенствует свои знания и делится ими со студентами. В КИТ вы найдете не только качественное образование, но и активную студенческую жизнь, возможности для саморазвития и участия в реальных проектах.</p>
+                        <a href="about.html" class="btn-link">Подробнее о нас <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="about-image">
+                        <!-- Замените на изображение колледжа -->
+                        <img src="https://placehold.co/400x300/007bff/ffffff?text=Колледж ИТ" alt="Здание Колледжа ИТ">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "Наши специальности" -->
+        <section class="specialties-section content-section bg-dark-blue">
+            <div class="container">
+                <h2>Наши специальности</h2>
+                <p class="section-subtitle">Мы предлагаем широкий спектр востребованных IT-специальностей, которые откроют перед вами двери в мир технологий.</p>
+                <div class="specialties-grid">
+                    <div class="specialty-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Разработка программного обеспечения</h3>
+                        <p>Изучите языки программирования, алгоритмы и принципы создания современных приложений.</p>
+                        <a href="education.html#software" class="btn-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="specialty-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Сетевые технологии и кибербезопасность</h3>
+                        <p>Освойте основы построения сетей, защиты данных и борьбы с киберугрозами.</p>
+                        <a href="education.html#network" class="btn-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="specialty-card">
+                        <i class="fas fa-database"></i>
+                        <h3>Базы данных и аналитика</h3>
+                        <p>Научитесь управлять большими данными, проводить анализ и извлекать ценные инсайты.</p>
+                        <a href="education.html#database" class="btn-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="specialty-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>Веб-дизайн и разработка</h3>
+                        <p>Создавайте красивые и функциональные веб-сайты, от концепции до реализации.</p>
+                        <a href="education.html#webdesign" class="btn-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "Почему выбирают нас?" -->
+        <section class="why-choose-us-section content-section">
+            <div class="container">
+                <h2>Почему выбирают Колледж ИТ?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Современное оборудование</h3>
+                        <p>Обучение на передовом оборудовании и в полностью оснащенных лабораториях.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Опытные преподаватели</h3>
+                        <p>Наши преподаватели — практикующие специалисты с богатым опытом.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Перспективы трудоустройства</h3>
+                        <p>Активное сотрудничество с ведущими IT-компаниями для успешного трудоустройства выпускников.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Активная студенческая жизнь</h3>
+                        <p>Многочисленные клубы, мероприятия и проекты для всестороннего развития.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "Партнеры" -->
+        <section class="partners-section content-section bg-dark-blue">
+            <div class="container">
+                <h2>Наши партнеры</h2>
+                <p class="section-subtitle">Мы гордимся сотрудничеством с ведущими компаниями и организациями, которые поддерживают наших студентов и выпускников.</p>
+                <div class="partners-logos">
+                    <!-- Замените на реальные логотипы партнеров -->
+                    <img src="https://placehold.co/120x60/34495e/ffffff?text=Partner1" alt="Партнер 1">
+                    <img src="https://placehold.co/120x60/34495e/ffffff?text=Partner2" alt="Партнер 2">
+                    <img src="https://placehold.co/120x60/34495e/ffffff?text=Partner3" alt="Партнер 3">
+                    <img src="https://placehold.co/120x60/34495e/ffffff?text=Partner4" alt="Партнер 4">
+                    <img src="https://placehold.co/120x60/34495e/ffffff?text=Partner5" alt="Партнер 5">
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-col">
+                        <h3>Колледж ИТ</h3>
+                        <p>Подготовка будущих лидеров в сфере информационных технологий.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Быстрые ссылки</h3>
+                        <ul>
+                            <li><a href="about.html">О колледже</a></li>
+                            <li><a href="applicants.html">Абитуриентам</a></li>
+                            <li><a href="education.html">Специальности</a></li>
+                            <li><a href="contact.html">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Контакты</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> г. Ташкент, ул. Примерная, 123</p>
+                        <p><i class="fas fa-phone"></i> +998 (XX) XXX-XX-XX</p>
+                        <p><i class="fas fa-envelope"></i> info@itcollege.uz</p>
+                        <a href="https://t.me/your_livegram_bot" target="_blank" class="btn btn-primary btn-small mt-3">
+                            <i class="fab fa-telegram-plane"></i> Задать вопрос в Telegram
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Колледж Информационных Технологий. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const langButtons = document.querySelectorAll('.lang-btn');
+
+            // Мобильное меню
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            // Переключатель языков (простая логика для демонстрации)
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    // Здесь будет логика для смены языка контента
+                    console.log('Язык переключен на:', button.dataset.lang);
+                    // В реальном проекте здесь будет загрузка контента для выбранного языка
+                });
+            });
+        });
+    </script>
+</body>
+</html>
