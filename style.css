@@ -678,7 +678,8 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 .applicants-page-content table,
-.education-page-content table { /* Добавлено для education.html */
+.education-page-content table,
+.student-life-page-content table { /* Добавлено для student-life.html */
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -689,8 +690,10 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 
 .applicants-page-content th,
 .applicants-page-content td,
-.education-page-content th, /* Добавлено для education.html */
-.education-page-content td { /* Добавлено для education.html */
+.education-page-content th,
+.education-page-content td,
+.student-life-page-content th, /* Добавлено для student-life.html */
+.student-life-page-content td { /* Добавлено для student-life.html */
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
@@ -698,7 +701,8 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 .applicants-page-content th,
-.education-page-content th { /* Добавлено для education.html */
+.education-page-content th,
+.student-life-page-content th { /* Добавлено для student-life.html */
     background-color: var(--primary-blue);
     color: var(--dark-blue);
     font-weight: 700;
@@ -707,12 +711,14 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 .applicants-page-content tr:nth-child(even),
-.education-page-content tr:nth-child(even) { /* Добавлено для education.html */
+.education-page-content tr:nth-child(even),
+.student-life-page-content tr:nth-child(even) { /* Добавлено для student-life.html */
     background-color: var(--medium-blue);
 }
 
 .applicants-page-content tr:hover,
-.education-page-content tr:hover { /* Добавлено для education.html */
+.education-page-content tr:hover,
+.student-life-page-content tr:hover { /* Добавлено для student-life.html */
     background-color: rgba(0, 123, 255, 0.1);
 }
 
@@ -885,6 +891,130 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 
+/* --- Стили для страницы "Студенческая жизнь" (student-life.html) --- */
+.student-life-page-content .student-council-info,
+.student-life-page-content .dorm-info {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+.student-life-page-content .student-life-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    flex: 1;
+    min-width: 300px; /* Минимальная ширина для изображения */
+}
+
+.student-life-page-content .student-council-info .info-list,
+.student-life-page-content .dorm-info .info-list {
+    flex: 1.5; /* Занимает больше места, чем изображение */
+    min-width: 300px; /* Минимальная ширина для списка */
+    list-style: none;
+    padding: 0;
+}
+
+.student-life-page-content .clubs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.student-life-page-content .club-card {
+    background-color: var(--dark-blue);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.student-life-page-content .club-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2);
+}
+
+.student-life-page-content .club-card i {
+    font-size: 3.5rem;
+    color: var(--accent-yellow);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+.student-life-page-content .club-card h4 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.student-life-page-content .event-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.student-life-page-content .event-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.student-life-page-content .event-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.student-life-page-content .alumni-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.student-life-page-content .alumni-card {
+    background-color: var(--dark-blue);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.student-life-page-content .alumni-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.student-life-page-content .alumni-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--accent-yellow);
+}
+
+.student-life-page-content .alumni-card h4 {
+    font-size: 1.2rem;
+    color: var(--light-blue);
+    margin-bottom: 5px;
+}
+
+.student-life-page-content .alumni-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+
 /* --- Адаптивный дизайн (Media Queries) --- */
 @media (max-width: 992px) {
     h1 { font-size: 3rem; }
@@ -1001,6 +1131,49 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .education-page-content .teachers-grid { grid-template-columns: 1fr; }
     .education-page-content .teacher-card img { width: 80px; height: 80px; }
     .education-page-content .teacher-card h4 { font-size: 1.1rem; }
+
+    /* Адаптация для страницы "Студенческая жизнь" на мобильных */
+    .student-life-page-content .student-council-info,
+    .student-life-page-content .dorm-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .student-life-page-content .student-life-img {
+        min-width: unset; /* Сброс минимальной ширины */
+        width: 90%; /* Адаптивная ширина */
+    }
+    .student-life-page-content .student-council-info .info-list,
+    .student-life-page-content .dorm-info .info-list {
+        min-width: unset;
+        width: 100%;
+        text-align: center; /* Центрируем текст списка */
+    }
+    .student-life-page-content .info-list li {
+        justify-content: center; /* Центрируем иконку и текст */
+    }
+    .student-life-page-content .clubs-grid,
+    .student-life-page-content .event-gallery,
+    .student-life-page-content .alumni-stories-grid {
+        grid-template-columns: 1fr;
+    }
+    .student-life-page-content .club-card,
+    .student-life-page-content .alumni-card {
+        padding: 20px;
+    }
+    .student-life-page-content .club-card i {
+        font-size: 3rem;
+    }
+    .student-life-page-content .club-card h4 {
+        font-size: 1.3rem;
+    }
+    .student-life-page-content .alumni-card img {
+        width: 70px;
+        height: 70px;
+    }
+    .student-life-page-content .alumni-card h4 {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 480px) {
