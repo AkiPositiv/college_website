@@ -284,7 +284,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     font-size: 0.9rem;
 }
 
-/* --- Раздел "О нас" (About Us) --- */
+/* --- Раздел "О нас" (About Us) - на главной странице --- */
 .about-us-section {
     background-color: var(--dark-blue);
 }
@@ -484,6 +484,407 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 
+/* --- Стили для страницы "О колледже" (about.html) --- */
+.about-page-content h2 {
+    margin-bottom: 40px;
+}
+
+.about-section-block {
+    background-color: var(--dark-blue);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.about-section-block:nth-child(even) { /* Чередующиеся фоны для секций */
+    background-color: var(--medium-blue);
+}
+
+.about-section-block h3 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
+    display: inline-block; /* Чтобы рамка была по ширине текста */
+}
+
+.about-section-block p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.about-section-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    display: block; /* Убирает лишний отступ снизу */
+}
+
+/* Стили для сетки руководства */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.leader-card {
+    background-color: var(--medium-blue);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+}
+
+.leader-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary-blue);
+}
+
+.leader-card h4 {
+    font-size: 1.3rem;
+    color: var(--light-blue);
+    margin-bottom: 5px;
+}
+
+.leader-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+/* Стили для списка документов */
+.document-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.document-list li {
+    background-color: var(--medium-blue);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    transition: background-color var(--transition-speed);
+}
+
+.document-list li:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.document-list li i {
+    font-size: 1.2rem;
+    color: var(--accent-yellow);
+    margin-right: 15px;
+}
+
+.document-list li a {
+    color: var(--light-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+.document-list li a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+/* Стили для сетки достижений */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.achievement-item {
+    background-color: var(--dark-blue);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-item i {
+    font-size: 2.5rem;
+    color: var(--accent-yellow);
+    margin-bottom: 15px;
+}
+
+.achievement-item p {
+    font-size: 1rem;
+    color: var(--light-blue);
+}
+
+/* --- Стили для страницы "Абитуриентам" (applicants.html) --- */
+.applicants-page-content .info-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.applicants-page-content .info-list li {
+    background-color: var(--medium-blue);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    color: var(--light-blue);
+}
+
+.applicants-page-content .info-list li i {
+    color: var(--accent-yellow);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.applicants-page-content .specialty-card h4 {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+/* Стили для таблиц */
+.table-responsive {
+    overflow-x: auto; /* Горизонтальная прокрутка для маленьких экранов */
+    margin-top: 30px;
+}
+
+.applicants-page-content table,
+.education-page-content table { /* Добавлено для education.html */
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: var(--dark-blue);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Для скругленных углов */
+}
+
+.applicants-page-content th,
+.applicants-page-content td,
+.education-page-content th, /* Добавлено для education.html */
+.education-page-content td { /* Добавлено для education.html */
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--light-blue);
+}
+
+.applicants-page-content th,
+.education-page-content th { /* Добавлено для education.html */
+    background-color: var(--primary-blue);
+    color: var(--dark-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.applicants-page-content tr:nth-child(even),
+.education-page-content tr:nth-child(even) { /* Добавлено для education.html */
+    background-color: var(--medium-blue);
+}
+
+.applicants-page-content tr:hover,
+.education-page-content tr:hover { /* Добавлено для education.html */
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Стили для списка контактов приемной комиссии */
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.contact-info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--light-blue);
+}
+
+.contact-info-list li i {
+    color: var(--accent-yellow);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+/* Стили для аккордеона FAQ */
+.faq-accordion {
+    margin-top: 30px;
+}
+
+.faq-item {
+    background-color: var(--medium-blue);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: var(--primary-blue);
+    color: var(--dark-blue);
+    padding: 18px 25px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-speed);
+}
+
+.accordion-header:hover {
+    background-color: var(--light-blue);
+}
+
+.accordion-header i {
+    transition: transform var(--transition-speed);
+}
+
+.faq-item.active .accordion-header i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    background-color: var(--dark-blue);
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-speed) ease-out;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+    color: var(--secondary-text-color);
+}
+
+
+/* --- Стили для страницы "Образование" (education.html) --- */
+.education-page-content .specialty-detail-card {
+    background-color: var(--dark-blue);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px; /* Отступ между карточками специальностей */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.education-page-content .specialty-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+}
+
+.education-page-content .specialty-detail-card h4 {
+    font-size: 1.6rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.education-page-content .specialty-detail-card i {
+    font-size: 3rem;
+    color: var(--accent-yellow);
+    margin-bottom: 20px;
+    display: block; /* Чтобы иконка была на отдельной строке */
+}
+
+.education-page-content .program-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.education-page-content .program-features li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--light-blue);
+}
+
+.education-page-content .program-features li i {
+    color: var(--accent-yellow);
+    margin-right: 10px;
+    font-size: 1.1rem;
+    margin-top: 4px; /* Для выравнивания с текстом */
+}
+
+.education-page-content .teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.education-page-content .teacher-card {
+    background-color: var(--dark-blue);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.education-page-content .teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.education-page-content .teacher-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--accent-yellow);
+}
+
+.education-page-content .teacher-card h4 {
+    font-size: 1.25rem;
+    color: var(--light-blue);
+    margin-bottom: 5px;
+}
+
+.education-page-content .teacher-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+
 /* --- Адаптивный дизайн (Media Queries) --- */
 @media (max-width: 992px) {
     h1 { font-size: 3rem; }
@@ -492,6 +893,11 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .lang-switcher { margin-left: 15px; }
     .about-content { flex-direction: column; text-align: center; }
     .about-image { margin-top: 30px; }
+    .about-section-block { padding: 30px; }
+    .about-section-block h3 { font-size: 1.8rem; }
+    .education-page-content .specialty-detail-card { padding: 30px; }
+    .education-page-content .specialty-detail-card h4 { font-size: 1.4rem; }
+    .education-page-content .specialty-detail-card i { font-size: 2.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -560,6 +966,41 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .footer-content { grid-template-columns: 1fr; text-align: center; }
     .footer-col ul { display: flex; flex-direction: column; align-items: center; }
     .social-links { margin-top: 15px; }
+
+    /* Адаптация для страницы "О колледже" на мобильных */
+    .about-section-block { padding: 20px; }
+    .about-section-block h3 { font-size: 1.5rem; }
+    .leadership-grid, .achievements-grid { grid-template-columns: 1fr; }
+    .leader-card img { width: 100px; height: 100px; }
+    .document-list li { padding: 10px 15px; font-size: 0.9rem; }
+
+    /* Адаптация для страницы "Абитуриентам" на мобильных */
+    .applicants-page-content .info-list li,
+    .applicants-page-content .contact-info-list li {
+        font-size: 0.95rem;
+        padding: 10px 15px;
+    }
+    .applicants-page-content th,
+    .applicants-page-content td {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    .accordion-header {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+    .accordion-content p {
+        padding: 10px 0;
+    }
+
+    /* Адаптация для страницы "Образование" на мобильных */
+    .education-page-content .specialty-detail-card { padding: 25px; }
+    .education-page-content .specialty-detail-card h4 { font-size: 1.2rem; }
+    .education-page-content .specialty-detail-card i { font-size: 2.5rem; }
+    .education-page-content .program-features li { font-size: 0.95rem; }
+    .education-page-content .teachers-grid { grid-template-columns: 1fr; }
+    .education-page-content .teacher-card img { width: 80px; height: 80px; }
+    .education-page-content .teacher-card h4 { font-size: 1.1rem; }
 }
 
 @media (max-width: 480px) {
