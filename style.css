@@ -1428,9 +1428,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
         /* Добавлено: отступ снизу для логотипа, когда он переносится */
     }
     .logo span {
-        font-size: 1.2rem; /* Уменьшаем размер шрифта для названия колледжа */
-        line-height: 1.2; /* Убедимся, что текст не обрезается */
-        max-width: calc(100% - 60px); /* Ограничиваем ширину, чтобы оставить место для лого и отступов */
+        display: none; /* Полностью скрываем текст названия колледжа */
     }
     .nav { 
         width: 100%; 
@@ -1560,8 +1558,4 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .hero-section { height: 400px; }
     .specialty-card i, .feature-item i { font-size: 2.5rem; }
     .partners-logos img { max-height: 40px; }
-
-    .logo span {
-        font-size: 1rem; /* Еще сильнее уменьшаем размер шрифта для очень маленьких экранов */
-    }
 }
