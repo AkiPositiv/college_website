@@ -1383,6 +1383,9 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 
 /* --- Адаптивный дизайн (Media Queries) --- */
 @media (max-width: 992px) {
+    .logo span {
+        display: none; /* Полностью скрываем текст названия колледжа для планшетов и мобильных */
+    }
     h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
     .nav-links { gap: 15px; }
@@ -1418,28 +1421,23 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 @media (max-width: 768px) {
-    .header .container { 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        /* Добавлено: позволяет элементам переноситься и центрироваться */
+    .header .container {
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    .logo { 
-        margin-bottom: 15px; 
-        /* Добавлено: отступ снизу для логотипа, когда он переносится */
+    .logo {
+        margin-bottom: 15px;
     }
-    .logo span {
-        display: none; /* Полностью скрываем текст названия колледжа */
+    /* .logo span { moved to 992px media query */
+    .nav {
+        width: 100%;
+        justify-content: flex-end;
     }
-    .nav { 
-        width: 100%; 
-        justify-content: flex-end; 
-        /* Перемещаем навигацию вправо */
-    }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
-        left: -100%; /* Скрываем меню за экраном */
+        left: -100%;
         width: 100%;
         height: 100vh;
         background-color: rgba(10, 25, 47, 0.95);
@@ -1449,11 +1447,11 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
         align-items: center;
         gap: 30px;
         transition: left var(--transition-speed) ease-in-out;
-        z-index: 9; /* Ниже кнопки бургера */
+        z-index: 9;
     }
 
     .nav-links.active {
-        left: 0; /* Показываем меню */
+        left: 0;
     }
 
     .nav-links a {
@@ -1470,9 +1468,9 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     }
 
     .menu-toggle {
-        display: flex; /* Показываем бургер-меню */
-        position: relative; /* Чтобы z-index работал */
-        z-index: 11; /* Поверх навигации */
+        display: flex;
+        position: relative;
+        z-index: 11;
     }
 
     .menu-toggle.active span:nth-child(1) {
