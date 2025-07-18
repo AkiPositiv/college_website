@@ -79,9 +79,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Убедимся, что элементы не переносятся на новую строку на десктопе */
-    flex-wrap: nowrap;
-    overflow-x: hidden; /* Скрываем горизонтальную прокрутку контейнера хедера */
+    flex-wrap: nowrap; /* Важно: предотвращает перенос элементов в хедере */
 }
 
 .logo {
@@ -92,7 +90,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     color: var(--primary-blue);
     text-decoration: none;
     transition: color var(--transition-speed);
-    flex-shrink: 0; /* Предотвращаем сжатие логотипа */
+    flex-shrink: 0; /* Предотвращает сжатие логотипа */
 }
 
 .logo-img {
@@ -104,13 +102,21 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     color: var(--light-blue);
 }
 
+/* Добавлен стиль для текста логотипа, чтобы он мог уменьшаться */
+.logo span {
+    white-space: nowrap; /* Предотвращает перенос текста */
+    overflow: hidden;    /* Скрывает текст, если он слишком длинный */
+    text-overflow: ellipsis; /* Добавляет многоточие, если текст обрезан */
+    max-width: 100%; /* Ограничивает ширину для предотвращения переполнения */
+}
+
+
 .nav {
     display: flex;
     align-items: center;
     flex-grow: 1; /* Позволяет навигации занимать доступное пространство */
     justify-content: flex-end; /* Выравнивает навигацию по правому краю */
-    /* Дополнительно, чтобы навигация не сжималась слишком сильно */
-    min-width: 0; /* Разрешает сжатие flex-элемента */
+    min-width: 0; /* Позволяет содержимому сжиматься */
 }
 
 .nav-links {
@@ -118,18 +124,13 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     margin: 0;
     padding: 0;
     display: flex;
-    /* Увеличен gap для лучшего распределения, если позволяет ширина */
-    gap: 25px; /* Вернул к 25px, если 20px было слишком мало */
-    
-    /* Эти свойства критичны для удержания в одну строку */
-    flex-wrap: nowrap; /* Предотвращает перенос элементов на новую строку */
-    white-space: nowrap; /* Предотвращает перенос текста внутри ссылок */
-    overflow-x: auto; /* Позволяет горизонтальную прокрутку, если ссылки не помещаются */
+    gap: 15px; /* Уменьшен gap для более плотного размещения */
+    flex-wrap: nowrap; /* Важно: предотвращает перенос ссылок */
+    white-space: nowrap; /* Важно: предотвращает перенос текста внутри ссылок */
+    overflow-x: auto; /* Позволяет горизонтальную прокрутку, если ссылки слишком длинные */
     -webkit-overflow-scrolling: touch; /* Улучшает скроллинг на iOS */
     scrollbar-width: none; /* Скрывает стандартный скроллбар для Firefox */
-    
-    /* Убедимся, что ссылки не сжимаются */
-    flex-shrink: 0;
+    padding-bottom: 5px; /* Дополнительный padding для скроллбара, если он появится */
 }
 
 .nav-links::-webkit-scrollbar {
@@ -143,9 +144,8 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     transition: color var(--transition-speed);
     position: relative;
     padding-bottom: 5px; /* Для подчеркивания */
-    font-size: 1rem; /* Вернул к 1rem, если 0.95rem было слишком мелко */
-    line-height: 1.2; /* Убедимся, что высота строки не вызывает проблем */
-    display: block; /* Чтобы padding работал корректно */
+    font-size: 0.9rem; /* Немного уменьшен размер шрифта для лучшего размещения */
+    line-height: 1.2; /* Увеличиваем line-height для предотвращения обрезания текста */
 }
 
 .nav-links a:hover,
@@ -170,7 +170,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 .lang-switcher {
-    margin-left: 30px;
+    margin-left: 20px; /* Уменьшен margin-left */
     display: flex;
     gap: 5px;
     flex-shrink: 0; /* Предотвращает сжатие переключателя языков */
@@ -211,6 +211,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     cursor: pointer;
     padding: 0;
     z-index: 10;
+    margin-left: 15px; /* Добавлен отступ для бургера */
 }
 .menu-toggle span {
     width: 100%;
@@ -309,6 +310,34 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 .btn-small {
     padding: 8px 15px;
     font-size: 0.9rem;
+}
+
+/* --- Общие стили для секций (section-block) --- */
+.section-block {
+    background-color: var(--dark-blue);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.section-block:nth-child(even) { /* Чередующиеся фоны для секций */
+    background-color: var(--medium-blue);
+}
+
+.section-block h3 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
+    display: inline-block; /* Чтобы рамка была по ширине текста */
+}
+
+.section-block p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 /* --- Раздел "О нас" (About Us) - на главной странице --- */
@@ -1356,7 +1385,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 @media (max-width: 992px) {
     h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
-    .nav-links { gap: 15px; } /* Уменьшаем gap для планшетов */
+    .nav-links { gap: 15px; }
     .lang-switcher { margin-left: 15px; }
     .section-block { padding: 30px; }
     .section-block h3 { font-size: 1.8rem; }
@@ -1390,37 +1419,47 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 
 @media (max-width: 768px) {
     .header .container { 
-        flex-wrap: wrap; /* Разрешаем перенос на мобильных для лучшего вида */
+        flex-wrap: wrap; 
         justify-content: center; 
+        /* Добавлено: позволяет элементам переноситься и центрироваться */
     }
-    .logo { margin-bottom: 15px; }
-    .nav { width: 100%; justify-content: flex-end; }
+    .logo { 
+        margin-bottom: 15px; 
+        /* Добавлено: отступ снизу для логотипа, когда он переносится */
+    }
+    .logo span {
+        font-size: 1.2rem; /* Уменьшаем размер шрифта для названия колледжа */
+        line-height: 1.2; /* Убедимся, что текст не обрезается */
+        max-width: calc(100% - 60px); /* Ограничиваем ширину, чтобы оставить место для лого и отступов */
+    }
+    .nav { 
+        width: 100%; 
+        justify-content: flex-end; 
+        /* Перемещаем навигацию вправо */
+    }
     
     .nav-links {
         position: fixed;
         top: 0;
-        left: -100%;
+        left: -100%; /* Скрываем меню за экраном */
         width: 100%;
         height: 100vh;
         background-color: rgba(10, 25, 47, 0.95);
         backdrop-filter: blur(15px);
-        flex-direction: column; /* Вертикальное расположение для мобильного меню */
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 30px;
         transition: left var(--transition-speed) ease-in-out;
-        z-index: 9;
-        /* Сбрасываем overflow-x и white-space для мобильного меню */
-        overflow-x: hidden;
-        white-space: normal;
+        z-index: 9; /* Ниже кнопки бургера */
     }
 
     .nav-links.active {
-        left: 0;
+        left: 0; /* Показываем меню */
     }
 
     .nav-links a {
-        font-size: 1.5rem; /* Увеличиваем размер шрифта для мобильного меню */
+        font-size: 1.5rem;
         padding: 10px 0;
     }
 
@@ -1433,9 +1472,9 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     }
 
     .menu-toggle {
-        display: flex;
-        position: relative;
-        z-index: 11;
+        display: flex; /* Показываем бургер-меню */
+        position: relative; /* Чтобы z-index работал */
+        z-index: 11; /* Поверх навигации */
     }
 
     .menu-toggle.active span:nth-child(1) {
@@ -1461,34 +1500,57 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .footer-col ul { display: flex; flex-direction: column; align-items: center; }
     .social-links { margin-top: 15px; }
 
-    /* Адаптация для страницы "Контакты" на мобильных */
-    .contact-page-content .contact-info-grid {
-        grid-template-columns: 1fr;
+    /* Адаптация для страницы "О колледже" на мобильных */
+    .about-section-block { padding: 20px; }
+    .about-section-block h3 { font-size: 1.5rem; }
+    .leadership-grid, .achievements-grid { grid-template-columns: 1fr; }
+    .leader-card img { width: 100px; height: 100px; }
+    .document-list li { padding: 10px 15px; font-size: 0.9rem; }
+
+    /* Адаптация для страницы "Абитуриентам" на мобильных */
+    .applicants-page-content .info-list li,
+    .applicants-page-content .contact-info-list li {
+        font-size: 0.95rem;
+        padding: 10px 15px;
     }
-    .contact-page-content .contact-item {
-        padding: 20px;
-    }
-    .contact-page-content .contact-item i {
-        font-size: 2rem;
-    }
-    .contact-page-content .contact-item h4 {
-        font-size: 1.1rem;
-    }
-    .contact-page-content .form-group label {
-        font-size: 0.9rem;
-    }
-    .contact-page-content .form-group input,
-    .contact-page-content .form-group textarea {
+    .applicants-page-content th,
+    .applicants-page-content td {
+        padding: 10px;
         font-size: 0.85rem;
     }
-    .contact-page-content .social-media-links {
-        flex-direction: column;
-        align-items: center;
+    .accordion-header {
+        padding: 15px 20px;
+        font-size: 1rem;
     }
-    .contact-page-content .social-media-btn {
-        width: 80%;
-        max-width: 250px;
-        justify-content: center;
+    .accordion-content p {
+        padding: 10px 0;
+    }
+
+    /* Адаптация для страницы "Образование" на мобильных */
+    .education-page-content .specialty-details-grid {
+        grid-template-columns: 1fr;
+    }
+    .education-page-content .specialty-detail-card {
+        padding: 20px;
+    }
+    .education-page-content .specialty-detail-card h4 {
+        font-size: 1.4rem;
+    }
+    .education-page-content .key-points-list li {
+        font-size: 0.9rem;
+    }
+    .faculty-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .faculty-card img {
+        width: 70px;
+        height: 70px;
+    }
+    .faculty-card h4 {
+        font-size: 1.1rem;
+    }
+    .faculty-card p, .faculty-card .small-text {
+        font-size: 0.75rem;
     }
 }
 
@@ -1498,4 +1560,8 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .hero-section { height: 400px; }
     .specialty-card i, .feature-item i { font-size: 2.5rem; }
     .partners-logos img { max-height: 40px; }
+
+    .logo span {
+        font-size: 1rem; /* Еще сильнее уменьшаем размер шрифта для очень маленьких экранов */
+    }
 }
