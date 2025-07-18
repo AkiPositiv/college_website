@@ -77,9 +77,9 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 
 .header .container {
     display: flex;
-    justify-content: space-between; /* Логотип слева, действия справа */
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* Предотвращает перенос на десктопе */
+    flex-wrap: nowrap; /* Важно: предотвращает перенос элементов в хедере */
 }
 
 .logo {
@@ -110,12 +110,13 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     max-width: 100%; /* Ограничивает ширину для предотвращения переполнения */
 }
 
-/* Навигация для десктопа (скрыта на мобильных) */
+
 .nav {
-    display: flex; /* Всегда flex для десктопа */
-    flex-grow: 1; /* Позволяет навигации занимать доступное пространство */
-    justify-content: center; /* Центрирует ссылки на десктопе */
+    display: flex;
     align-items: center;
+    flex-grow: 1; /* Позволяет навигации занимать доступное пространство */
+    justify-content: flex-end; /* Выравнивает навигацию по правому краю */
+    min-width: 0; /* Позволяет содержимому сжиматься */
 }
 
 .nav-links {
@@ -123,7 +124,17 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 25px; /* Стандартный отступ для ссылок на десктопе */
+    gap: 15px; /* Уменьшен gap для более плотного размещения */
+    flex-wrap: nowrap; /* Важно: предотвращает перенос ссылок */
+    white-space: nowrap; /* Важно: предотвращает перенос текста внутри ссылок */
+    overflow-x: auto; /* Позволяет горизонтальную прокрутку, если ссылки слишком длинные */
+    -webkit-overflow-scrolling: touch; /* Улучшает скроллинг на iOS */
+    scrollbar-width: none; /* Скрывает стандартный скроллбар для Firefox */
+    padding-bottom: 5px; /* Дополнительный padding для скроллбара, если он появится */
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none; /* Скрывает скроллбар для Webkit-браузеров */
 }
 
 .nav-links a {
@@ -158,14 +169,8 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     width: 100%;
 }
 
-/* Контейнер для переключателя языка и кнопки-бургера */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Отступ между переключателем языка и бургером */
-}
-
 .lang-switcher {
+    margin-left: 20px; /* Уменьшен margin-left */
     display: flex;
     gap: 5px;
     flex-shrink: 0; /* Предотвращает сжатие переключателя языков */
@@ -196,7 +201,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 
 /* --- Кнопка-бургер (скрыта на десктопе) --- */
 .menu-toggle {
-    display: none; /* Скрыто по умолчанию на десктопе */
+    display: none; /* Скрыто по умолчанию */
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
@@ -206,6 +211,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     cursor: pointer;
     padding: 0;
     z-index: 10;
+    margin-left: 15px; /* Добавлен отступ для бургера */
 }
 .menu-toggle span {
     width: 100%;
@@ -1377,16 +1383,73 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 
 /* --- Адаптивный дизайн (Media Queries) --- */
 @media (max-width: 992px) {
-    .logo span {
-        display: none; /* Полностью скрываем текст названия колледжа для планшетов и мобильных */
+    /* Header adjustments for tablets and smaller */
+    .header {
+        padding: 1.2rem 0; /* Slightly increase header height */
     }
+    .header .container {
+        flex-wrap: nowrap; /* Ensure elements stay on one line */
+        justify-content: space-between; /* Distribute space between logo and nav */
+        align-items: center;
+    }
+    .logo {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    .logo span {
+        display: none; /* Hide college name text for tablets and mobiles */
+    }
+
+    .nav {
+        display: flex; /* Make nav a flex container */
+        align-items: center;
+        flex-grow: 1; /* Allow nav to take available space */
+        justify-content: center; /* Center its content by default */
+        min-width: 0; /* Allow it to shrink */
+    }
+
+    .nav-links {
+        /* These are for the overlay menu, so they should remain hidden by default */
+        display: none; /* Hide desktop nav links on mobile/tablet */
+        /* Existing fixed, top, left, width, height, background, etc. should remain for the active state */
+    }
+
+    .lang-switcher {
+        position: static; /* Remove absolute positioning */
+        margin: 0; /* Remove any conflicting margins */
+        /* It will be centered by .nav's justify-content: center; */
+    }
+    
+    .menu-toggle {
+        display: flex; /* Show hamburger menu */
+        position: static; /* Remove relative positioning */
+        margin-left: auto; /* Push hamburger to the far right within the nav */
+        flex-shrink: 0;
+    }
+
+    /* Adjust nav-links when active (mobile menu open) */
+    .nav-links.active {
+        display: flex; /* Show as flex column when active */
+        top: 60px; /* Adjust based on new header height */
+    }
+
+    /* Main content starting below header */
+    .hero-section {
+        min-height: 500px; /* Change from fixed height to min-height */
+        padding-top: 60px; /* Add padding to push content down, accounting for header */
+        display: flex; /* Ensure flex properties are maintained */
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+    .hero-content {
+        margin-top: auto; /* Push content to bottom if min-height is larger than content */
+        margin-bottom: auto; /* Center vertically */
+    }
+
     h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
-    /* Скрываем основную навигацию на планшетах */
-    .nav {
-        display: none;
-    }
-    .lang-switcher { margin-left: 0; } /* Убираем лишний отступ */
+    .lang-switcher { margin-left: 15px; } /* Re-add margin for spacing */
     .section-block { padding: 30px; }
     .section-block h3 { font-size: 1.8rem; }
 
@@ -1415,67 +1478,40 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .contact-page-content .social-media-btn i {
         font-size: 1rem;
     }
-
-    /* Мобильная навигация (появляется при активации) */
-    .nav.active {
-        display: flex; /* Показываем при активном состоянии */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(10, 25, 47, 0.95);
-        backdrop-filter: blur(15px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        transition: left var(--transition-speed) ease-in-out;
-        z-index: 9;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 20px;
-        overflow-x: visible;
-        padding-bottom: 0;
-    }
-
-    .nav-links a {
-        font-size: 1.5rem; /* Увеличиваем шрифт для мобильного меню */
-    }
-
-    .header-actions {
-        display: flex; /* Показываем на мобильных/планшетах */
-    }
-
-    .menu-toggle {
-        display: flex; /* Показываем кнопку-бургер */
-        z-index: 11; /* Убеждаемся, что она поверх всего */
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-    }
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
 }
 
 @media (max-width: 768px) {
+    /* Header adjustments for phones */
+    .header {
+        padding: 1rem 0; /* Slightly smaller header on very small screens */
+    }
+    .nav-links.active {
+        top: 50px; /* Adjust based on new header height for smaller screens */
+    }
+    .hero-section {
+        min-height: 400px; /* Smaller min-height for very small screens */
+        padding-top: 50px; /* Adjust padding for smaller header */
+    }
+
     .header .container {
-        flex-wrap: nowrap; /* Чтобы логотип, язык и бургер были в одну строку */
-        justify-content: space-between;
+        flex-wrap: nowrap; /* Ensure elements stay on one line */
+        justify-content: space-between; /* Distribute space */
+        align-items: center;
     }
     .logo {
         margin-bottom: 0;
     }
-    .hero-section {
-        height: 500px;
+    .nav {
+        width: auto;
+        justify-content: center;
     }
+    .lang-switcher {
+        margin: 0 15px; /* Ensure it stays centered with spacing */
+    }
+    .menu-toggle {
+        margin-left: auto;
+    }
+
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content p { font-size: 1.1rem; }
     .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
@@ -1487,8 +1523,6 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     .social-links { margin-top: 15px; }
 
     /* Адаптация для страницы "О колледже" на мобильных */
-    .about-content { flex-direction: column; text-align: center; }
-    .about-image { margin-top: 30px; }
     .about-section-block { padding: 20px; }
     .about-section-block h3 { font-size: 1.5rem; }
     .leadership-grid, .achievements-grid { grid-template-columns: 1fr; }
