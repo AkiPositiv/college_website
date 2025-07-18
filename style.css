@@ -79,7 +79,9 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* Добавлено: предотвращает перенос элементов в хедере */
+    /* Убедимся, что элементы не переносятся на новую строку на десктопе */
+    flex-wrap: nowrap;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку контейнера хедера */
 }
 
 .logo {
@@ -90,7 +92,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     color: var(--primary-blue);
     text-decoration: none;
     transition: color var(--transition-speed);
-    flex-shrink: 0; /* Добавлено: предотвращает сжатие логотипа */
+    flex-shrink: 0; /* Предотвращаем сжатие логотипа */
 }
 
 .logo-img {
@@ -107,6 +109,8 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     align-items: center;
     flex-grow: 1; /* Позволяет навигации занимать доступное пространство */
     justify-content: flex-end; /* Выравнивает навигацию по правому краю */
+    /* Дополнительно, чтобы навигация не сжималась слишком сильно */
+    min-width: 0; /* Разрешает сжатие flex-элемента */
 }
 
 .nav-links {
@@ -114,12 +118,18 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px; /* Уменьшен gap для более плотного размещения */
-    flex-wrap: nowrap; /* Добавлено: предотвращает перенос ссылок */
-    white-space: nowrap; /* Добавлено: предотвращает перенос текста внутри ссылок */
-    overflow-x: auto; /* Добавлено: позволяет прокручивать, если ссылки слишком длинные */
+    /* Увеличен gap для лучшего распределения, если позволяет ширина */
+    gap: 25px; /* Вернул к 25px, если 20px было слишком мало */
+    
+    /* Эти свойства критичны для удержания в одну строку */
+    flex-wrap: nowrap; /* Предотвращает перенос элементов на новую строку */
+    white-space: nowrap; /* Предотвращает перенос текста внутри ссылок */
+    overflow-x: auto; /* Позволяет горизонтальную прокрутку, если ссылки не помещаются */
     -webkit-overflow-scrolling: touch; /* Улучшает скроллинг на iOS */
     scrollbar-width: none; /* Скрывает стандартный скроллбар для Firefox */
+    
+    /* Убедимся, что ссылки не сжимаются */
+    flex-shrink: 0;
 }
 
 .nav-links::-webkit-scrollbar {
@@ -133,7 +143,9 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     transition: color var(--transition-speed);
     position: relative;
     padding-bottom: 5px; /* Для подчеркивания */
-    font-size: 0.95rem; /* Немного уменьшен размер шрифта, если нужно */
+    font-size: 1rem; /* Вернул к 1rem, если 0.95rem было слишком мелко */
+    line-height: 1.2; /* Убедимся, что высота строки не вызывает проблем */
+    display: block; /* Чтобы padding работал корректно */
 }
 
 .nav-links a:hover,
@@ -161,7 +173,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     margin-left: 30px;
     display: flex;
     gap: 5px;
-    flex-shrink: 0; /* Добавлено: предотвращает сжатие переключателя языков */
+    flex-shrink: 0; /* Предотвращает сжатие переключателя языков */
 }
 
 .lang-btn {
@@ -1344,7 +1356,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 @media (max-width: 992px) {
     h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
-    .nav-links { gap: 15px; }
+    .nav-links { gap: 15px; } /* Уменьшаем gap для планшетов */
     .lang-switcher { margin-left: 15px; }
     .section-block { padding: 30px; }
     .section-block h3 { font-size: 1.8rem; }
@@ -1377,7 +1389,10 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
 }
 
 @media (max-width: 768px) {
-    .header .container { flex-wrap: wrap; justify-content: center; }
+    .header .container { 
+        flex-wrap: wrap; /* Разрешаем перенос на мобильных для лучшего вида */
+        justify-content: center; 
+    }
     .logo { margin-bottom: 15px; }
     .nav { width: 100%; justify-content: flex-end; }
     
@@ -1389,12 +1404,15 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
         height: 100vh;
         background-color: rgba(10, 25, 47, 0.95);
         backdrop-filter: blur(15px);
-        flex-direction: column;
+        flex-direction: column; /* Вертикальное расположение для мобильного меню */
         justify-content: center;
         align-items: center;
         gap: 30px;
         transition: left var(--transition-speed) ease-in-out;
         z-index: 9;
+        /* Сбрасываем overflow-x и white-space для мобильного меню */
+        overflow-x: hidden;
+        white-space: normal;
     }
 
     .nav-links.active {
@@ -1402,7 +1420,7 @@ p { color: var(--secondary-text-color); font-size: 1rem; }
     }
 
     .nav-links a {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Увеличиваем размер шрифта для мобильного меню */
         padding: 10px 0;
     }
 
